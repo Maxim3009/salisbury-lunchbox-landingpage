@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+:root {
+  --color-paper: #f7fcfe;
+  --color-paper-soft: #eaf2f6;
+  --color-mist: #dce8ee;
+  --color-line: #cfdfe7;
+  --color-ink: #1e3350;
+  --color-ink-soft: #3c5570;
+  --color-muted: #5c7690;
+  --color-primary: #4472a6;
+  --color-primary-dark: #345a85;
+  --color-secondary: #8ba4bb;
+  --color-accent: #cd8e62;
+  --color-accent-dark: #a96f45;
+}
+
+@theme inline {
+  --color-paper: var(--color-paper);
+  --color-paper-soft: var(--color-paper-soft);
+  --color-mist: var(--color-mist);
+  --color-line: var(--color-line);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-muted: var(--color-muted);
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-accent-dark: var(--color-accent-dark);
+
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fade-in 0.8s ease-out forwards;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .texture-dots {
+    background-image: radial-gradient(currentColor 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+
+  /* Lunchbox + apple pattern artwork supplied by the restaurant owner, tiled behind the Hero. */
+  .pattern-lunchbox {
+    background-image: url("/images/patterns/lunchbox-pattern.png");
+    background-repeat: repeat;
+    background-size: 1000px 755px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
