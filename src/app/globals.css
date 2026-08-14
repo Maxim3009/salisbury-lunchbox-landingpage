@@ -71,13 +71,6 @@ body {
     background-image: radial-gradient(currentColor 1px, transparent 1px);
     background-size: 16px 16px;
   }
-
-  /* Lunchbox + apple pattern artwork supplied by the restaurant owner, tiled behind the Hero. */
-  .pattern-lunchbox {
-    background-image: url("/images/patterns/lunchbox-pattern.png");
-    background-repeat: repeat;
-    background-size: 1000px 755px;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
