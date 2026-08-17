@@ -6,8 +6,8 @@ export const restaurant = {
   name: "Salisbury Lunchbox",
   shortName: "Lunchbox",
   tagline: "Fresh lunch, made for your day",
-  phoneDisplay: "01722 000 000",
-  phoneHref: "tel:+441722000000",
+  phoneDisplay: "0420 740 558",
+  phoneHref: "tel:0420740558",
   addressLines: ["12 Market Place", "Salisbury, Wiltshire, SP1 1AA"],
   todayHours: "Mon–Fri · 10:00am – 3:00pm",
 };

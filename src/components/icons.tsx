@@ -139,3 +139,12 @@ export function IconArrowRight({ className }: IconProps) {
     </svg>
   );
 }
+
+// Rating stars read better solid than as line icons, unlike the rest of this set.
+export function IconStar({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+      <path d="M12 3.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7Z" />
+    </svg>
+  );
+}

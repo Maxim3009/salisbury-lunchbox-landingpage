@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { HeroDecorations } from "@/components/HeroDecorations";
 import { PlaceholderImage } from "@/components/PlaceholderImage";
-import { IconArrowRight, IconMapPin, IconSandwich } from "@/components/icons";
+import { IconArrowRight, IconMapPin, IconSandwich, IconStar } from "@/components/icons";
 
 export function Hero() {
   return (
@@ -55,12 +55,13 @@ export function Hero() {
               className="aspect-square w-full rounded-full border-none"
             />
           </div>
-          <div className="absolute -bottom-3 -right-3 flex h-28 w-28 flex-col items-center justify-center rounded-full border-4 border-paper bg-accent text-center shadow-[0_12px_30px_-12px_rgba(30,51,80,0.45)] sm:h-32 sm:w-32">
-            <p className="font-display text-xl font-semibold text-ink sm:text-2xl">
-              10 min
-            </p>
+          <div className="absolute -bottom-3 -right-3 flex h-28 w-28 flex-col items-center justify-center gap-0.5 rounded-full border-4 border-paper bg-accent text-center shadow-[0_12px_30px_-12px_rgba(30,51,80,0.45)] sm:h-32 sm:w-32">
+            <div className="flex items-center gap-1">
+              <p className="text-xl font-semibold text-ink sm:text-2xl">4+</p>
+              <IconStar className="h-4 w-4 text-[#FFC107] sm:h-5 sm:w-5" />
+            </div>
             <p className="text-[0.65rem] font-medium uppercase tracking-wide text-ink/80">
-              Avg. order
+              Google Reviews
             </p>
           </div>
         </div>

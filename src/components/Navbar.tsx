@@ -31,16 +31,16 @@ export function Navbar() {
         isScrolled ? "shadow-[0_8px_24px_-16px_rgba(0,0,0,0.5)]" : ""
       }`}
     >
-      <div className="mx-auto flex h-18 max-w-6xl items-center justify-between px-6 py-4 lg:px-8">
+      <div className="flex h-18 w-full items-center justify-between gap-4 px-6 py-4 lg:px-10 xl:px-14">
         <Link
           href="/"
-          className="font-display text-xl font-semibold tracking-tight transition-opacity hover:opacity-80"
+          className="shrink-0 whitespace-nowrap font-display text-xl font-semibold tracking-tight transition-opacity hover:opacity-80"
         >
           {restaurant.name}
         </Link>
 
-        <nav aria-label="Primary" className="hidden xl:block">
-          <ul className="flex items-center gap-9">
+        <nav aria-label="Primary" className="hidden min-w-0 xl:block">
+          <ul className="flex items-center gap-6 whitespace-nowrap">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -70,10 +70,10 @@ export function Navbar() {
           </ul>
         </nav>
 
-        <div className="hidden items-center xl:flex">
+        <div className="hidden shrink-0 items-center xl:flex">
           <a
             href={restaurant.phoneHref}
-            className="flex items-center gap-2 text-sm font-medium text-paper transition-colors hover:text-paper/75"
+            className="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-paper transition-colors hover:text-paper/75"
           >
             <IconPhone className="h-4 w-4" />
             {restaurant.phoneDisplay}
