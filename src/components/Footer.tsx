@@ -8,13 +8,13 @@ export function Footer() {
   return (
     <footer className="border-t border-line bg-paper-soft">
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="sm:col-span-2 lg:col-span-1">
+        <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_2fr_2fr]">
+          <div>
             <p className="font-display text-xl font-semibold text-ink">
               {restaurant.name}
             </p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted">
-              Fresh, honest lunches made daily for the Salisbury community.
+              Fresh, honest lunches made daily for the Asquith community.
             </p>
           </div>
 
@@ -44,7 +44,12 @@ export function Footer() {
             <h2 className="text-xs font-semibold uppercase tracking-[0.15em] text-ink-soft">
               Visit
             </h2>
-            <div className="mt-4 flex items-start gap-3 text-sm text-ink-soft">
+            <a
+              href={restaurant.mapsHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 flex items-start gap-3 text-sm text-ink-soft transition-colors hover:text-primary"
+            >
               <IconMapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
               <address className="not-italic leading-relaxed">
                 {restaurant.addressLines.map((line) => (
@@ -53,7 +58,7 @@ export function Footer() {
                   </span>
                 ))}
               </address>
-            </div>
+            </a>
           </div>
 
           <div>
@@ -70,7 +75,13 @@ export function Footer() {
               </a>
               <div className="flex items-start gap-3">
                 <IconClock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <span className="leading-relaxed">{restaurant.todayHours}</span>
+                <div className="leading-relaxed">
+                  {restaurant.hours.map((entry) => (
+                    <p key={entry.days}>
+                      {entry.days}: {entry.time}
+                    </p>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

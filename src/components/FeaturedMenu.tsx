@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { featuredMenuItems } from "@/data/menu";
-import { MenuCard } from "@/components/MenuCard";
+import { FeaturedMenuCarousel } from "@/components/FeaturedMenuCarousel";
 import { IconArrowRight } from "@/components/icons";
 
 export function FeaturedMenu() {
@@ -10,7 +10,7 @@ export function FeaturedMenu() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
-              Today&apos;s Favourites
+              Salisbury&apos;s Favourites
             </p>
             <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">
               Featured lunch items
@@ -25,10 +25,8 @@ export function FeaturedMenu() {
           </Link>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featuredMenuItems.map((item) => (
-            <MenuCard key={item.id} item={item} />
-          ))}
+        <div className="mt-12">
+          <FeaturedMenuCarousel items={featuredMenuItems} />
         </div>
       </div>
     </section>

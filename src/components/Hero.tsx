@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { restaurant } from "@/data/restaurant";
 import { HeroDecorations } from "@/components/HeroDecorations";
 import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { IconArrowRight, IconMapPin, IconSandwich, IconStar } from "@/components/icons";
@@ -36,13 +37,15 @@ export function Hero() {
               View Our Menu
               <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
-            <Link
-              href="/location"
+            <a
+              href={restaurant.mapsHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 border border-ink/20 px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:border-ink/40"
             >
               <IconMapPin className="h-4 w-4" />
               Find Us
-            </Link>
+            </a>
           </div>
         </div>
 

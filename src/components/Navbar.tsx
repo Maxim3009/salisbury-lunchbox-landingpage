@@ -46,16 +46,16 @@ export function Navbar() {
               return (
                 <li key={item.label}>
                   {item.comingSoon ? (
-                    <span className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-paper/45">
+                    <span className="flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wider text-paper/45">
                       {item.label}
-                      <span className="rounded-full border border-paper/25 px-1.5 py-0.5 text-[0.6rem] font-medium normal-case tracking-normal text-paper/55">
+                      <span className="rounded-full border border-paper/25 px-1.5 py-0.5 text-[0.65rem] font-medium normal-case tracking-normal text-paper/55">
                         Soon
                       </span>
                     </span>
                   ) : (
                     <Link
                       href={item.href}
-                      className={`text-xs font-semibold uppercase tracking-wider transition-colors hover:text-paper ${
+                      className={`text-sm font-semibold uppercase tracking-wider transition-colors hover:text-paper ${
                         isActive
                           ? "text-paper underline decoration-2 underline-offset-8"
                           : "text-paper/75"
@@ -105,9 +105,9 @@ export function Navbar() {
               return (
                 <li key={item.label}>
                   {item.comingSoon ? (
-                    <span className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-paper/45">
+                    <span className="flex items-center gap-2 text-base font-semibold uppercase tracking-wider text-paper/45">
                       {item.label}
-                      <span className="rounded-full border border-paper/25 px-1.5 py-0.5 text-[0.6rem] font-medium normal-case tracking-normal text-paper/55">
+                      <span className="rounded-full border border-paper/25 px-1.5 py-0.5 text-[0.65rem] font-medium normal-case tracking-normal text-paper/55">
                         Soon
                       </span>
                     </span>
@@ -115,7 +115,7 @@ export function Navbar() {
                     <Link
                       href={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className={`text-sm font-semibold uppercase tracking-wider transition-colors hover:text-paper ${
+                      className={`text-base font-semibold uppercase tracking-wider transition-colors hover:text-paper ${
                         isActive ? "text-paper underline decoration-2 underline-offset-4" : "text-paper/75"
                       }`}
                     >

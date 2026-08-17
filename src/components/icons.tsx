@@ -140,6 +140,24 @@ export function IconArrowRight({ className }: IconProps) {
   );
 }
 
+export function IconMessage({ className }: IconProps) {
+  return (
+    <svg className={className} {...base}>
+      <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-5.5L6 20.2V17H6a2 2 0 0 1-2-2V6Z" />
+    </svg>
+  );
+}
+
+export function IconInfo({ className }: IconProps) {
+  return (
+    <svg className={className} {...base}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 11v5" />
+      <path d="M12 8h.01" />
+    </svg>
+  );
+}
+
 // Rating stars read better solid than as line icons, unlike the rest of this set.
 export function IconStar({ className }: IconProps) {
   return (

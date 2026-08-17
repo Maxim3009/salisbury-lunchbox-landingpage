@@ -20,29 +20,35 @@ const values = [
   {
     icon: IconMapPin,
     title: "Proudly local",
-    description: "An independent shop, rooted in the Salisbury community.",
+    description: "An independent shop, rooted in the Asquith community.",
   },
 ];
 
 export function RestaurantIntro() {
   return (
     <section className="bg-paper">
-      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-20 lg:px-8 lg:py-28">
-        <PlaceholderImage
-          icon={IconLeaf}
-          label="Photo of fresh ingredients being prepared in the kitchen"
-          tone="primary"
-          className="aspect-[4/3] w-full lg:aspect-[5/6]"
-        />
-
-        <div>
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr] lg:grid-rows-[auto_1fr] lg:gap-x-20 lg:gap-y-5 lg:px-8 lg:py-28">
+        {/* On smaller-than-desktop screens this heading renders above the
+            image (natural DOM order); at lg+ it's placed into the top of
+            the right-hand column instead. */}
+        <div className="lg:col-start-2 lg:row-start-1">
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
             Our Story
           </p>
           <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">
             Honest lunch, done properly.
           </h2>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft">
+        </div>
+
+        <PlaceholderImage
+          icon={IconLeaf}
+          label="Photo of fresh ingredients being prepared in the kitchen"
+          tone="primary"
+          className="aspect-[4/3] w-full lg:col-start-1 lg:row-start-1 lg:row-span-2 lg:aspect-auto lg:h-full"
+        />
+
+        <div className="lg:col-start-2 lg:row-start-2">
+          <p className="max-w-xl text-base leading-relaxed text-ink-soft">
             Salisbury Lunchbox started with a simple idea: lunch should be
             quick, but it shouldn&apos;t feel rushed. We prepare everything
             fresh in-house each morning, using quality ingredients from
