@@ -5,7 +5,7 @@
 const addressLines = ["Unit 14/31-37 Salisbury Rd", "Asquith NSW 2077"];
 
 export const restaurant = {
-  name: "Salisbury Lunchbox",
+  name: "Salisbury Lunch Box",
   shortName: "Lunchbox",
   tagline: "Fresh lunch, made for your day",
   phoneDisplay: "0420 740 558",
@@ -29,6 +29,7 @@ export type NavItem = {
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "/" },
+  { label: "Our Location", href: "/#location" },
   { label: "Menu", href: "/menu" },
   { label: "Gallery", href: "/gallery", comingSoon: true },
 ];

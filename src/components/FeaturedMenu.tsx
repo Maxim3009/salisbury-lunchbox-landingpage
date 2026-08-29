@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { featuredMenuItems } from "@/data/menu";
-import { FeaturedMenuCarousel } from "@/components/FeaturedMenuCarousel";
+import { StackInteractor } from "@/components/StackInteractor";
 import { IconArrowRight } from "@/components/icons";
 
 export function FeaturedMenu() {
@@ -12,13 +11,13 @@ export function FeaturedMenu() {
             <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
               Salisbury&apos;s Favourites
             </p>
-            <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">
+            <h2 className="mt-4 font-display text-3xl leading-tight tracking-tight text-primary sm:text-4xl">
               Featured lunch items
             </h2>
           </div>
           <Link
             href="/menu"
-            className="group inline-flex w-fit items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-primary"
+            className="group inline-flex w-fit items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary-dark"
           >
             See full menu
             <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -26,7 +25,7 @@ export function FeaturedMenu() {
         </div>
 
         <div className="mt-12">
-          <FeaturedMenuCarousel items={featuredMenuItems} />
+          <StackInteractor />
         </div>
       </div>
     </section>

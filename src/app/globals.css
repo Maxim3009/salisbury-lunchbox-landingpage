@@ -5,8 +5,6 @@
   --color-paper-soft: #eaf2f6;
   --color-mist: #dce8ee;
   --color-line: #cfdfe7;
-  --color-ink: #1e3350;
-  --color-ink-soft: #3c5570;
   --color-muted: #5c7690;
   --color-primary: #4472a6;
   --color-primary-dark: #345a85;
@@ -20,8 +18,6 @@
   --color-paper-soft: var(--color-paper-soft);
   --color-mist: var(--color-mist);
   --color-line: var(--color-line);
-  --color-ink: var(--color-ink);
-  --color-ink-soft: var(--color-ink-soft);
   --color-muted: var(--color-muted);
   --color-primary: var(--color-primary);
   --color-primary-dark: var(--color-primary-dark);
@@ -29,8 +25,9 @@
   --color-accent: var(--color-accent);
   --color-accent-dark: var(--color-accent-dark);
 
-  --font-display: var(--font-fraunces);
+  --font-display: var(--font-heading);
   --font-sans: var(--font-inter);
+  --font-marker: var(--font-marker);
 
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-fade-in: fade-in 0.8s ease-out forwards;
@@ -58,7 +55,7 @@
 
 body {
   background: var(--color-paper);
-  color: var(--color-ink);
+  color: var(--color-primary);
   font-family: var(--font-sans);
 }
 

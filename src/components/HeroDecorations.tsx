@@ -72,7 +72,7 @@ const decorations = [
     height: 56,
     // Same reasoning as top-e, mirrored on the left edge for this row's
     // leftward sway.
-    className: `left-[12%] bottom-[9px] lg:bottom-[16px] ${orangeFixed} rotate-[15deg]`,
+    className: `left-[12%] bottom-[6px] lg:bottom-[8px] ${orangeFixed} rotate-[15deg]`,
     drift: { x: -18, delay: 0.4 },
   },
   {
@@ -80,7 +80,7 @@ const decorations = [
     src: "/images/patterns/lunchbox-3.png",
     width: 102,
     height: 78,
-    className: `left-[21%] bottom-[26px] lg:bottom-[14px] ${blueBig} rotate-[-10deg]`,
+    className: `left-[21%] bottom-[23px] lg:bottom-[6px] ${blueBig} rotate-[-10deg]`,
     drift: { x: -26, delay: 0.9 },
   },
   {
@@ -88,7 +88,7 @@ const decorations = [
     src: "/images/patterns/lunchbox-2.png",
     width: 63,
     height: 56,
-    className: `left-[41%] bottom-[5px] lg:bottom-[9px] ${orangeFixed} rotate-[-6deg]`,
+    className: `left-[41%] bottom-[3px] lg:bottom-[2px] ${orangeFixed} rotate-[-6deg]`,
     drift: { x: -22, delay: 1.3 },
   },
   {
@@ -96,7 +96,7 @@ const decorations = [
     src: "/images/patterns/lunchbox-1.png",
     width: 120,
     height: 97,
-    className: `right-[23%] bottom-[21px] lg:bottom-[46px] ${blueSmall} rotate-[11deg]`,
+    className: `right-[23%] bottom-[18px] lg:bottom-[28px] ${blueSmall} rotate-[11deg]`,
     drift: { x: -24, delay: 0.6 },
   },
   {
@@ -104,7 +104,7 @@ const decorations = [
     src: "/images/patterns/lunchbox-2.png",
     width: 63,
     height: 56,
-    className: `right-[3%] bottom-[11px] lg:bottom-[19px] ${orangeFixed} rotate-[-13deg]`,
+    className: `right-[3%] bottom-[8px] lg:bottom-[11px] ${orangeFixed} rotate-[-13deg]`,
     drift: { x: -28, delay: 1.1 },
   },
 ] as const;

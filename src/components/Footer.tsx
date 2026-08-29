@@ -10,7 +10,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_2fr_2fr]">
           <div>
-            <p className="font-display text-xl font-semibold text-ink">
+            <p className="font-display text-xl text-primary">
               {restaurant.name}
             </p>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted">
@@ -19,7 +19,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-[0.15em] text-ink-soft">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">
               Explore
             </h2>
             <ul className="mt-4 flex flex-col gap-3">
@@ -30,7 +30,7 @@ export function Footer() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="text-sm text-ink-soft transition-colors hover:text-primary"
+                      className="text-sm text-primary transition-colors hover:text-primary-dark"
                     >
                       {item.label}
                     </Link>
@@ -41,14 +41,14 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-[0.15em] text-ink-soft">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">
               Visit
             </h2>
             <a
               href={restaurant.mapsHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 flex items-start gap-3 text-sm text-ink-soft transition-colors hover:text-primary"
+              className="mt-4 flex items-start gap-3 text-sm text-primary transition-colors hover:text-primary-dark"
             >
               <IconMapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
               <address className="not-italic leading-relaxed">
@@ -62,13 +62,13 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="text-xs font-semibold uppercase tracking-[0.15em] text-ink-soft">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.15em] text-primary">
               Get in touch
             </h2>
-            <div className="mt-4 flex flex-col gap-3 text-sm text-ink-soft">
+            <div className="mt-4 flex flex-col gap-3 text-sm text-primary">
               <a
                 href={restaurant.phoneHref}
-                className="flex items-center gap-3 transition-colors hover:text-primary"
+                className="flex items-center gap-3 transition-colors hover:text-primary-dark"
               >
                 <IconPhone className="h-4 w-4 shrink-0 text-primary" />
                 {restaurant.phoneDisplay}

@@ -1,12 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
 import { restaurant } from "@/data/restaurant";
+import { BurgerPhoto } from "@/components/BurgerPhoto";
 import { HeroDecorations } from "@/components/HeroDecorations";
-import { PlaceholderImage } from "@/components/PlaceholderImage";
-import { IconArrowRight, IconMapPin, IconSandwich, IconStar } from "@/components/icons";
+import { IconArrowRight, IconMapPin, IconStar } from "@/components/icons";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-paper text-ink">
+    <section className="relative overflow-hidden bg-paper text-primary">
       <HeroDecorations />
 
       <div className="relative mx-auto grid max-w-6xl gap-14 px-6 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-16 lg:px-8 lg:py-28">
@@ -15,15 +16,15 @@ export function Hero() {
             Salisbury&apos;s Favourite Lunch Stop
           </p>
 
-          <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 font-display text-4xl leading-[1.05] tracking-tight text-balance sm:text-5xl lg:text-6xl">
             Fresh Lunch,
             <br />
-            <span className="mt-2 inline-block bg-ink px-4 py-1.5 text-paper">
+            <span className="mt-2 inline-block bg-primary px-4 py-1.5 text-paper">
               Made Daily.
             </span>
           </h1>
 
-          <p className="mt-7 max-w-md text-lg leading-relaxed text-ink-soft">
+          <p className="mt-7 max-w-md text-lg leading-relaxed text-primary">
             The only thing you need to pack is an appetite. Leave the meal
             prep behind and let us handle the heavy lifting (and the washing
             up).
@@ -32,7 +33,7 @@ export function Hero() {
           <div className="mt-9 flex flex-wrap items-center gap-4">
             <Link
               href="/menu"
-              className="group inline-flex items-center gap-2 bg-ink px-6 py-3.5 text-sm font-semibold text-paper transition-colors hover:bg-ink-soft"
+              className="group inline-flex items-center gap-2 bg-primary px-6 py-3.5 text-sm font-semibold text-paper transition-colors hover:bg-primary-dark"
             >
               View Our Menu
               <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -41,7 +42,7 @@ export function Hero() {
               href={restaurant.mapsHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-ink/20 px-6 py-3.5 text-sm font-semibold text-ink transition-colors hover:border-ink/40"
+              className="inline-flex items-center gap-2 border border-primary/20 px-6 py-3.5 text-sm font-semibold text-primary transition-colors hover:border-primary/40"
             >
               <IconMapPin className="h-4 w-4" />
               Find Us
@@ -50,22 +51,24 @@ export function Hero() {
         </div>
 
         <div className="motion-safe:animate-fade-in motion-safe:[animation-delay:150ms] relative mx-auto w-full max-w-sm">
-          <div className="relative rounded-full border-[6px] border-paper shadow-[0_20px_50px_-20px_rgba(30,51,80,0.35)]">
-            <PlaceholderImage
-              icon={IconSandwich}
-              label="Photo of a customer enjoying a freshly made lunch"
-              tone="mist"
-              className="aspect-square w-full rounded-full border-none"
-            />
-          </div>
-          <div className="absolute -bottom-3 -right-3 flex h-28 w-28 flex-col items-center justify-center gap-0.5 rounded-full border-4 border-paper bg-accent text-center shadow-[0_12px_30px_-12px_rgba(30,51,80,0.45)] sm:h-32 sm:w-32">
-            <div className="flex items-center gap-1">
-              <p className="text-xl font-semibold text-ink sm:text-2xl">4+</p>
-              <IconStar className="h-4 w-4 text-[#FFC107] sm:h-5 sm:w-5" />
+          <BurgerPhoto />
+          <div className="absolute -bottom-3 -right-3 flex h-28 w-28 flex-col items-center justify-center gap-0.5 rounded-full bg-paper text-center shadow-[0_12px_30px_-12px_rgba(30,51,80,0.45)] sm:h-32 sm:w-32">
+            <div className="flex items-center gap-0.5">
+              {[true, true, true, true, false].map((filled, index) => (
+                <IconStar
+                  key={index}
+                  filled={filled}
+                  className="h-4 w-4 text-[#FFC107] sm:h-5 sm:w-5"
+                />
+              ))}
             </div>
-            <p className="text-[0.65rem] font-medium uppercase tracking-wide text-ink/80">
-              Google Reviews
-            </p>
+            <Image
+              src="/images/GoogleReviews.png"
+              alt="Google Reviews"
+              width={290}
+              height={129}
+              className="mt-0.5 ml-1 h-9 w-auto sm:ml-1.5 sm:h-11"
+            />
           </div>
         </div>
       </div>

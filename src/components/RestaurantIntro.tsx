@@ -1,4 +1,4 @@
-import { PlaceholderImage } from "@/components/PlaceholderImage";
+import { ImageTiles } from "@/components/ImageTiles";
 import { IconBolt, IconLeaf, IconClock, IconMapPin } from "@/components/icons";
 
 const values = [
@@ -35,21 +35,29 @@ export function RestaurantIntro() {
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-primary">
             Our Story
           </p>
-          <h2 className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">
+          <h2 className="mt-4 font-display text-3xl leading-tight tracking-tight text-primary sm:text-4xl">
             Honest lunch, done properly.
           </h2>
         </div>
 
-        <PlaceholderImage
-          icon={IconLeaf}
-          label="Photo of fresh ingredients being prepared in the kitchen"
-          tone="primary"
-          className="aspect-[4/3] w-full lg:col-start-1 lg:row-start-1 lg:row-span-2 lg:aspect-auto lg:h-full"
-        />
+        <div className="flex items-center justify-center overflow-x-hidden py-10 lg:col-start-1 lg:row-start-1 lg:row-span-2 lg:h-full lg:overflow-visible lg:py-0">
+          <ImageTiles
+            className="scale-[0.65] sm:scale-90 lg:scale-100"
+            leftImage="/images/RollPlate.JPG"
+            leftAlt="Plate of freshly made rolls"
+            leftLabel="Rolls"
+            middleImage="/images/SandwichPlate.JPG"
+            middleAlt="Plate of sandwiches"
+            middleLabel="Sandwiches"
+            rightImage="/images/WrapPlate.JPG"
+            rightAlt="Plate of wraps"
+            rightLabel="Wraps"
+          />
+        </div>
 
         <div className="lg:col-start-2 lg:row-start-2">
-          <p className="max-w-xl text-base leading-relaxed text-ink-soft">
-            Salisbury Lunchbox started with a simple idea: lunch should be
+          <p className="max-w-xl text-base leading-relaxed text-primary">
+            Salisbury Lunch Box started with a simple idea: lunch should be
             quick, but it shouldn&apos;t feel rushed. We prepare everything
             fresh in-house each morning, using quality ingredients from
             trusted local suppliers — so what you get is a proper meal, made
@@ -61,7 +69,7 @@ export function RestaurantIntro() {
               <div key={title} className="flex gap-4">
                 <Icon className="mt-0.5 h-6 w-6 shrink-0 text-primary" />
                 <div>
-                  <dt className="font-display text-base font-semibold text-ink">
+                  <dt className="font-display text-base text-primary">
                     {title}
                   </dt>
                   <dd className="mt-1 text-sm leading-relaxed text-muted">

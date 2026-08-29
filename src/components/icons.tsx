@@ -2,6 +2,8 @@
  * Small, hand-picked line icons used across the site.
  * Kept minimal and dependency-free rather than pulling in a full icon library.
  */
+import { useId } from "react";
+
 type IconProps = {
   className?: string;
 };
@@ -158,11 +160,179 @@ export function IconInfo({ className }: IconProps) {
   );
 }
 
-// Rating stars read better solid than as line icons, unlike the rest of this set.
-export function IconStar({ className }: IconProps) {
+export function IconBurger({ className }: IconProps) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M12 3.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7Z" />
+    <svg className={className} {...base}>
+      <path d="M4 11c0-4.4 3.6-8 8-8s8 3.6 8 8" />
+      <path d="M3 11h18" />
+      <path d="M3.5 14.5h17" />
+      <path d="M4 18a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1 3 3 0 0 1-3 3H7a3 3 0 0 1-3-3Z" />
+    </svg>
+  );
+}
+
+export function IconBreadLoaf({ className }: IconProps) {
+  return (
+    <svg className={className} {...base}>
+      <path d="M3 13c0-5 4-9 9-9s9 4 9 9-4 6-9 6-9-1-9-6Z" />
+      <path d="M8 8.5 6.5 11" />
+      <path d="M12.5 7 11 10" />
+      <path d="M17 8.5 15.5 11" />
+    </svg>
+  );
+}
+
+export function IconFlame({ className }: IconProps) {
+  return (
+    <svg className={className} {...base}>
+      <path d="M12 3c1 3-3 4.5-3 8.5a3 3 0 0 0 6 0c0-1-.5-2-.5-2 1 1.5 1.5 3 1.5 4.5a5 5 0 0 1-10 0C6 8.5 9 7.5 9 5c0-.8.6-2 3-2Z" />
+    </svg>
+  );
+}
+
+export function IconSunrise({ className }: IconProps) {
+  return (
+    <svg className={className} {...base}>
+      <path d="M5 18h14" />
+      <path d="M7 18a5 5 0 0 1 10 0" />
+      <path d="M12 8v3" />
+      <path d="m8.5 10.5 1.5 1.5" />
+      <path d="m15.5 10.5-1.5 1.5" />
+      <path d="M5.5 15h1.2" />
+      <path d="M17.3 15h1.2" />
+    </svg>
+  );
+}
+
+export function IconCookie({ className }: IconProps) {
+  return (
+    <svg className={className} {...base}>
+      <circle cx="12" cy="12" r="8.5" />
+      <circle cx="9" cy="9.5" r=".55" fill="currentColor" stroke="none" />
+      <circle cx="14.5" cy="9.5" r=".55" fill="currentColor" stroke="none" />
+      <circle cx="10" cy="14" r=".55" fill="currentColor" stroke="none" />
+      <circle cx="14.5" cy="14.5" r=".55" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function IconCup({ className }: IconProps) {
+  return (
+    <svg className={className} {...base}>
+      <path d="M7 9h10l-1 10a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2L7 9Z" />
+      <path d="M6 9h12" />
+      <path d="M14 9V5a1 1 0 0 0-1-1h-1.5" />
+    </svg>
+  );
+}
+
+export function IconTray({ className }: IconProps) {
+  return (
+    <svg className={className} {...base}>
+      <path d="M8 9V7a4 4 0 0 1 8 0v2" />
+      <path d="M3 9h18l-1.6 9.2a2 2 0 0 1-2 1.8H6.6a2 2 0 0 1-2-1.8L3 9Z" />
+    </svg>
+  );
+}
+
+export function IconBottle({ className }: IconProps) {
+  return (
+    <svg className={className} {...base}>
+      <path d="M10 3h4v3l1.5 2.2V19a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2V8.2L10 6V3Z" />
+      <path d="M9 12h6" />
+    </svg>
+  );
+}
+
+// Rating stars read better solid than as line icons, unlike the rest of this set.
+const starPath = "M12 3.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7Z";
+
+export function IconStar({ className, filled = true }: IconProps & { filled?: boolean }) {
+  const uid = useId();
+  const gradientId = `star-gradient-${uid}`;
+  const clipId = `star-clip-${uid}`;
+
+  if (!filled) {
+    return (
+      <svg
+        className={className}
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        strokeLinejoin="round"
+        aria-hidden
+      >
+        <path d={starPath} />
+      </svg>
+    );
+  }
+
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden>
+      <defs>
+        <linearGradient id={gradientId} x1="4" y1="3" x2="19" y2="21" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#FFF6C8" />
+          <stop offset="50%" stopColor="#FFC107" />
+          <stop offset="100%" stopColor="#F59E0B" />
+        </linearGradient>
+        <clipPath id={clipId}>
+          <path d={starPath} />
+        </clipPath>
+      </defs>
+      {/* Glossy fill: gradient body, a thin amber outline for definition, and
+          a soft white highlight clipped to the star's silhouette for shine. */}
+      <path d={starPath} fill={`url(#${gradientId})`} stroke="#B45309" strokeWidth={0.5} strokeLinejoin="round" />
+      <ellipse
+        cx="9.5"
+        cy="8"
+        rx="3.6"
+        ry="2.1"
+        fill="#FFFFFF"
+        opacity={0.55}
+        clipPath={`url(#${clipId})`}
+        transform="rotate(-18 9.5 8)"
+      />
+    </svg>
+  );
+}
+
+// A hand-drawn-feeling curvy pointer, used to connect a hover label to its image tile.
+export function IconCurvyArrow({ className }: IconProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 60 60"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={3.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M10 8Q48 4 26 46" />
+      <path d="M26 46L36 39M26 46L27 34" />
+    </svg>
+  );
+}
+
+// Same thick, hand-drawn marker style as IconCurvyArrow, but a straight
+// pointer — used where a connecting arrow needs a predictable, non-curving
+// path between two fixed points.
+export function IconStraightArrow({ className }: IconProps) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 60 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={3.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+    >
+      <path d="M4 12h44" />
+      <path d="M36 3l12 9-12 9" />
     </svg>
   );
 }
