@@ -1,9 +1,9 @@
 import { ImageTiles } from "@/components/ImageTiles";
-import { IconBolt, IconLeaf, IconClock, IconMapPin } from "@/components/icons";
+import { IconBolt, IconCarrot, IconClock, IconMapPin } from "@/components/icons";
 
 const values = [
   {
-    icon: IconLeaf,
+    icon: IconCarrot,
     title: "Quality ingredients",
     description: "Sourced fresh and prepared with care, every single day.",
   },
@@ -26,7 +26,7 @@ const values = [
 
 export function RestaurantIntro() {
   return (
-    <section className="bg-paper">
+    <section className="overflow-x-hidden bg-paper">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[1fr_1.1fr] lg:grid-rows-[auto_1fr] lg:gap-x-20 lg:gap-y-5 lg:px-8 lg:py-28">
         {/* On smaller-than-desktop screens this heading renders above the
             image (natural DOM order); at lg+ it's placed into the top of
@@ -40,7 +40,7 @@ export function RestaurantIntro() {
           </h2>
         </div>
 
-        <div className="flex items-center justify-center overflow-x-hidden py-10 lg:col-start-1 lg:row-start-1 lg:row-span-2 lg:h-full lg:overflow-visible lg:py-0">
+        <div className="flex h-[167px] items-center justify-center sm:h-[231px] lg:col-start-1 lg:row-start-1 lg:row-span-2 lg:h-full">
           <ImageTiles
             className="scale-[0.65] sm:scale-90 lg:scale-100"
             leftImage="/images/RollPlate.JPG"

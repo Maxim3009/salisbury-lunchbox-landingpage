@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { restaurant } from "@/data/restaurant";
-import { IconClock, IconMapPin, IconPhone, IconStraightArrow } from "@/components/icons";
+import { IconClock, IconMapPin, IconPhone } from "@/components/icons";
 
 // No API key needed — Google's classic "q=" embed resolves the verified
 // business listing directly (name, rating, address card) same as the
@@ -24,9 +24,8 @@ export function VisitSection() {
         </div>
 
         <div className="mt-12">
-          {/* Mobile/tablet: map, then photo, with a straight connecting
-              arrow sitting cleanly in the gap between them. */}
-          <div className="flex flex-col items-center gap-3 md:hidden">
+          {/* Mobile/tablet: map, then photo. */}
+          <div className="flex flex-col items-center gap-6 md:hidden">
             <div className="w-full overflow-hidden rounded-2xl border border-line shadow-[0_20px_50px_-20px_rgba(30,51,80,0.25)]">
               <iframe
                 src={mapSrc}
@@ -39,8 +38,6 @@ export function VisitSection() {
               />
             </div>
 
-            <IconStraightArrow className="h-8 w-14 shrink-0 rotate-90 text-accent" />
-
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-line shadow-[0_20px_50px_-20px_rgba(30,51,80,0.25)]">
               <Image
                 src="/images/Hero%20Image.PNG"
@@ -52,9 +49,8 @@ export function VisitSection() {
             </div>
           </div>
 
-          {/* Desktop: map | arrow | photo as genuine grid columns, so the
-              straight connecting arrow sits clear of both images. */}
-          <div className="hidden md:grid md:grid-cols-[1fr_auto_1fr] md:items-center md:gap-8">
+          {/* Desktop: map | photo as genuine grid columns. */}
+          <div className="hidden md:grid md:grid-cols-2 md:items-center md:gap-8">
             <div className="overflow-hidden rounded-2xl border border-line shadow-[0_20px_50px_-20px_rgba(30,51,80,0.25)]">
               <iframe
                 src={mapSrc}
@@ -66,8 +62,6 @@ export function VisitSection() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-
-            <IconStraightArrow className="h-10 w-20 shrink-0 text-accent" />
 
             <div className="relative h-[360px] overflow-hidden rounded-2xl border border-line shadow-[0_20px_50px_-20px_rgba(30,51,80,0.25)]">
               <Image

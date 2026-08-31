@@ -23,19 +23,11 @@ const orangeFixed = "w-10";
 // so nothing can ever drift into the text column or the photo.
 const decorations = [
   {
-    id: "top-a",
-    src: "/images/patterns/lunchbox-1.png",
-    width: 120,
-    height: 97,
-    className: `left-[3%] top-[6px] lg:top-[10px] ${blueBig} rotate-[-11deg]`,
-    drift: { x: 26, delay: 0 },
-  },
-  {
     id: "top-b",
     src: "/images/patterns/lunchbox-2.png",
     width: 63,
     height: 56,
-    className: `left-[16%] top-[24px] lg:top-[48px] ${orangeFixed} rotate-[9deg]`,
+    className: `left-[16%] top-[30px] lg:top-[48px] ${orangeFixed} rotate-[9deg]`,
     drift: { x: 24, delay: 0.5 },
   },
   {
@@ -43,7 +35,7 @@ const decorations = [
     src: "/images/patterns/lunchbox-3.png",
     width: 102,
     height: 78,
-    className: `left-[35%] top-[3px] lg:top-[6px] ${blueSmall} rotate-[-15deg]`,
+    className: `left-[35%] top-[9px] lg:top-[6px] ${blueSmall} rotate-[-15deg]`,
     drift: { x: 28, delay: 1 },
   },
   {
@@ -51,29 +43,8 @@ const decorations = [
     src: "/images/patterns/lunchbox-2.png",
     width: 63,
     height: 56,
-    className: `right-[29%] top-[27px] lg:top-[54px] ${orangeFixed} rotate-[12deg]`,
+    className: `right-[29%] top-[33px] lg:top-[54px] ${orangeFixed} rotate-[12deg]`,
     drift: { x: 24, delay: 0.3 },
-  },
-  {
-    id: "top-e",
-    src: "/images/patterns/lunchbox-1.png",
-    width: 120,
-    height: 97,
-    // Sits closest to the right edge, so it keeps extra rest margin (9%
-    // instead of 2%) and the smallest drift — otherwise swaying further
-    // right would push it past the section boundary and get clipped.
-    className: `right-[12%] top-[13px] lg:top-[26px] ${blueBig} rotate-[-8deg]`,
-    drift: { x: 18, delay: 0.8 },
-  },
-  {
-    id: "bottom-a",
-    src: "/images/patterns/lunchbox-2.png",
-    width: 63,
-    height: 56,
-    // Same reasoning as top-e, mirrored on the left edge for this row's
-    // leftward sway.
-    className: `left-[12%] bottom-[6px] lg:bottom-[8px] ${orangeFixed} rotate-[15deg]`,
-    drift: { x: -18, delay: 0.4 },
   },
   {
     id: "bottom-b",
@@ -98,14 +69,6 @@ const decorations = [
     height: 97,
     className: `right-[23%] bottom-[18px] lg:bottom-[28px] ${blueSmall} rotate-[11deg]`,
     drift: { x: -24, delay: 0.6 },
-  },
-  {
-    id: "bottom-e",
-    src: "/images/patterns/lunchbox-2.png",
-    width: 63,
-    height: 56,
-    className: `right-[3%] bottom-[8px] lg:bottom-[11px] ${orangeFixed} rotate-[-13deg]`,
-    drift: { x: -28, delay: 1.1 },
   },
 ] as const;
 

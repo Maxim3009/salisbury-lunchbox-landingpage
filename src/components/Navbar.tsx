@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { restaurant, navItems } from "@/data/restaurant";
 import { IconClose, IconMenu, IconPhone } from "@/components/icons";
 import { useCurtainNavigate } from "@/components/CurtainTransition";
+import { smoothScrollTo } from "@/lib/smoothScroll";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -46,20 +47,35 @@ export function Navbar() {
     return () => observer.disconnect();
   }, [pathname]);
 
-  const handleNavClick = (event: React.MouseEvent, href: string) => {
-    // In-page hash links (e.g. "Our Location") only need this when we're
-    // already on "/" — otherwise the browser's normal navigation-then-jump
-    // to the hash on page load handles it.
+  const scrollToLocation = (id: string) => {
+    const target = document.getElementById(id);
+    if (!target) return;
+    setIsLocationActive(true);
+    const offset = 96;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    smoothScrollTo(top);
+  };
+
+  // `deferMs` matters only for the mobile menu: closing it triggers a
+  // 300ms height transition, and measuring scroll targets before that
+  // settles captures a stale position — the collapsing menu then shifts
+  // everything up underneath the in-progress scroll, overshooting past
+  // whatever we were scrolling to. Desktop has no such transition, so it
+  // scrolls immediately.
+  const handleNavClick = (event: React.MouseEvent, href: string, deferMs = 0) => {
+    // In-page hash links (e.g. "Our Location"). From another page (e.g.
+    // Menu), get the curtain wipe, then let Next's router jump to the hash
+    // once the home page has mounted. From "/" already, just smooth-scroll.
     if (href.startsWith("/#")) {
-      if (pathname !== "/") return;
-      const id = href.slice(2);
-      const target = document.getElementById(id);
-      if (!target) return;
+      if (pathname !== "/") {
+        event.preventDefault();
+        curtainNavigate(href);
+        return;
+      }
       event.preventDefault();
-      setIsLocationActive(true);
-      const offset = 96;
-      const top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top, behavior: "smooth" });
+      const id = href.slice(2);
+      if (deferMs > 0) window.setTimeout(() => scrollToLocation(id), deferMs);
+      else scrollToLocation(id);
       return;
     }
 
@@ -67,7 +83,8 @@ export function Navbar() {
     // than doing nothing.
     if (href === "/" && pathname === "/") {
       event.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (deferMs > 0) window.setTimeout(() => smoothScrollTo(0), deferMs);
+      else smoothScrollTo(0);
       return;
     }
 
@@ -181,7 +198,7 @@ export function Navbar() {
                       href={item.href}
                       onClick={(event) => {
                         setIsMenuOpen(false);
-                        handleNavClick(event, item.href);
+                        handleNavClick(event, item.href, 320);
                       }}
                       className={`text-base font-semibold uppercase tracking-wider transition-colors hover:text-paper ${
                         isActive ? "text-paper underline decoration-2 underline-offset-4" : "text-paper/75"

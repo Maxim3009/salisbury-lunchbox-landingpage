@@ -10,7 +10,7 @@ export function Hero() {
     <section className="relative overflow-hidden bg-paper text-primary">
       <HeroDecorations />
 
-      <div className="relative mx-auto grid max-w-6xl gap-14 px-6 py-16 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-16 lg:px-8 lg:py-28">
+      <div className="relative mx-auto grid max-w-6xl gap-14 px-6 pt-24 pb-16 sm:py-20 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-16 lg:px-8 lg:py-28">
         <div className="relative motion-safe:animate-fade-up">
           <p className="text-sm font-medium uppercase tracking-[0.25em] text-primary">
             Salisbury&apos;s Favourite Lunch Stop

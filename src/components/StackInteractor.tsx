@@ -77,8 +77,8 @@ export function StackInteractor() {
   return (
     <div className="overflow-x-hidden">
       {/* MOBILE / TABLET: one favourite at a time, swipeable + stepper buttons. */}
-      <div className="mx-auto flex w-full max-w-sm flex-col items-center md:hidden">
-        <div className="relative aspect-square w-full overflow-hidden rounded-3xl shadow-[0_20px_50px_-20px_rgba(30,51,80,0.35)]">
+      <div className="mx-auto flex w-full max-w-[280px] flex-col items-center md:hidden">
+        <div className="relative aspect-square w-full overflow-hidden rounded-3xl shadow-[0_25px_50px_-12px_rgba(30,51,80,0.4)]">
           <AnimatePresence mode="wait">
             <motion.div
               key={active.image}
@@ -96,7 +96,7 @@ export function StackInteractor() {
                 src={active.image}
                 alt={active.name}
                 fill
-                sizes="90vw"
+                sizes="280px"
                 className="pointer-events-none object-cover"
                 priority
               />
@@ -200,7 +200,7 @@ export function StackInteractor() {
         <div className="relative flex w-full justify-center md:w-1/2">
           <div className="absolute h-[120%] w-[120%] rounded-full bg-accent/10 blur-[100px]" />
 
-          <div className="relative z-10 aspect-square w-full max-w-[380px] overflow-hidden rounded-3xl shadow-[0_20px_50px_-20px_rgba(30,51,80,0.35)]">
+          <div className="relative z-10 aspect-square w-full max-w-[300px] overflow-hidden rounded-3xl shadow-[0_25px_50px_-12px_rgba(30,51,80,0.4)]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.image}
@@ -214,7 +214,7 @@ export function StackInteractor() {
                   src={active.image}
                   alt={active.name}
                   fill
-                  sizes="380px"
+                  sizes="300px"
                   className="object-cover"
                   priority={activeIndex === 0}
                 />

@@ -125,6 +125,26 @@ export function IconLeaf({ className }: IconProps) {
   );
 }
 
+export function IconCarrot({ className }: IconProps) {
+  return (
+    <svg className={className} {...base}>
+      <path d="M3 21s9.834 -3.489 12.684 -6.34a4.487 4.487 0 0 0 0 -6.344a4.483 4.483 0 0 0 -6.342 0c-2.86 2.861 -6.347 12.689 -6.347 12.689l.005 -.005" />
+      <path d="M9 13l-1.5 -1.5" />
+      <path d="M16 14l-2 -2" />
+      <path d="M22 8s-1.14 -2 -3 -2c-1.406 0 -3 2 -3 2s1.14 2 3 2s3 -2 3 -2" />
+      <path d="M16 2s-2 1.14 -2 3s2 3 2 3s2 -1.577 2 -3c0 -1.86 -2 -3 -2 -3" />
+    </svg>
+  );
+}
+
+export function IconChevronRight({ className }: IconProps) {
+  return (
+    <svg className={className} {...base}>
+      <path d="M9 5l7 7-7 7" />
+    </svg>
+  );
+}
+
 export function IconBolt({ className }: IconProps) {
   return (
     <svg className={className} {...base}>
@@ -312,27 +332,6 @@ export function IconCurvyArrow({ className }: IconProps) {
     >
       <path d="M10 8Q48 4 26 46" />
       <path d="M26 46L36 39M26 46L27 34" />
-    </svg>
-  );
-}
-
-// Same thick, hand-drawn marker style as IconCurvyArrow, but a straight
-// pointer — used where a connecting arrow needs a predictable, non-curving
-// path between two fixed points.
-export function IconStraightArrow({ className }: IconProps) {
-  return (
-    <svg
-      className={className}
-      viewBox="0 0 60 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={3.5}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d="M4 12h44" />
-      <path d="M36 3l12 9-12 9" />
     </svg>
   );
 }

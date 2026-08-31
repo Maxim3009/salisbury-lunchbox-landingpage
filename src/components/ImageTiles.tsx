@@ -1,9 +1,25 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion, type Variants } from "motion/react";
 import { IconCurvyArrow } from "@/components/icons";
+
+const HOVER_QUERY = "(hover: hover) and (pointer: fine)";
+
+function subscribeToHoverCapability(callback: () => void) {
+  const query = window.matchMedia(HOVER_QUERY);
+  query.addEventListener("change", callback);
+  return () => query.removeEventListener("change", callback);
+}
+
+function getHoverCapability() {
+  return window.matchMedia(HOVER_QUERY).matches;
+}
+
+function getHoverCapabilityServerSnapshot() {
+  return false;
+}
 
 // Adapted from https://21st.dev/@tonyzebastian/components/image-tiles —
 // three photos fanned out in a staggered pile that settles on mount and
@@ -115,6 +131,13 @@ export function ImageTiles({
   className = "",
 }: ImageTilesProps) {
   const [hovered, setHovered] = useState<TileKey | null>(null);
+  // Touch devices can't hover, so the labels would otherwise never appear —
+  // show them all the time there instead of gating on the "hovered" state.
+  const hasHover = useSyncExternalStore(
+    subscribeToHoverCapability,
+    getHoverCapability,
+    getHoverCapabilityServerSnapshot,
+  );
 
   return (
     <motion.div
@@ -133,7 +156,9 @@ export function ImageTiles({
         style={{ zIndex: 30 }}
       >
         <AnimatePresence>
-          {hovered === "left" && <TileLabel text={leftLabel} arrowClassName="-scale-x-100" />}
+          {(!hasHover || hovered === "left") && (
+            <TileLabel text={leftLabel} arrowClassName="-scale-x-100" />
+          )}
         </AnimatePresence>
         <div className="relative h-full w-full overflow-hidden rounded-xl bg-paper shadow-lg">
           <Image src={leftImage} alt={leftAlt} fill sizes="192px" className="rounded-xl object-cover p-2" />
@@ -150,7 +175,9 @@ export function ImageTiles({
         style={{ zIndex: 20 }}
       >
         <AnimatePresence>
-          {hovered === "middle" && <TileLabel text={middleLabel} arrowClassName="rotate-6" />}
+          {(!hasHover || hovered === "middle") && (
+            <TileLabel text={middleLabel} arrowClassName="rotate-6" />
+          )}
         </AnimatePresence>
         <div className="relative h-full w-full overflow-hidden rounded-xl bg-paper shadow-lg">
           <Image src={middleImage} alt={middleAlt} fill sizes="192px" className="rounded-xl object-cover p-2" />
@@ -167,7 +194,7 @@ export function ImageTiles({
         style={{ zIndex: 10 }}
       >
         <AnimatePresence>
-          {hovered === "right" && <TileLabel text={rightLabel} arrowClassName="" />}
+          {(!hasHover || hovered === "right") && <TileLabel text={rightLabel} arrowClassName="" />}
         </AnimatePresence>
         <div className="relative h-full w-full overflow-hidden rounded-xl bg-paper shadow-lg">
           <Image src={rightImage} alt={rightAlt} fill sizes="192px" className="rounded-xl object-cover p-2" />
