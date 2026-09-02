@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s | Salisbury Lunch Box",
   },
   description:
-    "Salisbury Lunch Box is a local lunch takeaway serving freshly made sandwiches, salads, wraps and rice bowls using quality ingredients, ready fast.",
+    "Salisbury Lunch Box is a local lunch takeaway serving freshly made burgers, sandwiches, salads, wraps and rice dishes using quality ingredients, ready fast.",
   keywords: [
     "lunch takeaway Salisbury",
     "sandwich shop Salisbury",
