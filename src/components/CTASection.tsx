@@ -13,7 +13,7 @@ export function CTASection() {
           Your next lunch is closer than you think.
         </h2>
         <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-paper/75">
-          Browse the menu, drop by the shop, or give us a call/message — however
+          Browse the menu, drop by the shop, or give us a call/message, however
           suits your day best.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">

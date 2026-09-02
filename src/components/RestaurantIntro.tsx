@@ -10,7 +10,7 @@ const values = [
   {
     icon: IconClock,
     title: "Made daily",
-    description: "Nothing sits around — our menu is prepared fresh each morning.",
+    description: "Nothing sits around; our menu is prepared fresh each morning.",
   },
   {
     icon: IconBolt,
@@ -60,7 +60,7 @@ export function RestaurantIntro() {
             Salisbury Lunch Box started with a simple idea: lunch should be
             quick, but it shouldn&apos;t feel rushed. We prepare everything
             fresh in-house each morning, using quality ingredients from
-            trusted local suppliers — so what you get is a proper meal, made
+            trusted local suppliers, so what you get is a proper meal, made
             for the middle of a busy day.
           </p>
 
