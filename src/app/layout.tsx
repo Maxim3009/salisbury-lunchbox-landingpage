@@ -27,7 +27,7 @@ const permanentMarker = Permanent_Marker({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://www.salisburylunchbox.co.uk";
+const siteUrl = "https://salisburylunchbox.netlify.app/";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -42,6 +42,26 @@ export const metadata: Metadata = {
     "sandwich shop Salisbury",
     "fresh lunch near me",
     "Salisbury Lunch Box",
+    "Asquith",
+    "Hornsby",
+    "Hornsby food",
+    "Hornsby lunch",
+    "Asquith food",
+    "Asquith lunch",
+    "lunch takeaway Asquith",
+    "lunch takeaway Hornsby",
+    "sandwich shop Asquith",
+    "sandwich shop Hornsby",
+    "fresh lunch Asquith",
+    "fresh lunch Hornsby",
+    "burgers Asquith",
+    "burgers Hornsby",
+    "wraps Asquith",
+    "wraps Hornsby",
+    "cafe Asquith",
+    "cafe Hornsby",
+    "Asquith takeaway",
+    "Hornsby takeaway",
   ],
   openGraph: {
     title: "Salisbury Lunch Box | Fresh Lunch, Made Daily",
